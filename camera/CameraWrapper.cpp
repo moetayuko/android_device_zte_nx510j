@@ -107,6 +107,10 @@ static char *camera_fixup_getparams(int id, const char *settings)
     params.dump();
 #endif
 
+    const char *supportedSceneModes =
+                params.get(android::CameraParameters::KEY_SUPPORTED_SCENE_MODES);
+    ALOGD("supportedSceneModes: %s", supportedSceneModes);
+
 #if !LOG_NDEBUG
     ALOGV("%s: fixed parameters:", __FUNCTION__);
     params.dump();
