@@ -1,3 +1,18 @@
+on boot
+    write /sys/devices/system/cpu/cpu4/online 0
+    write /sys/devices/system/cpu/cpu5/online 0
+    write /sys/devices/system/cpu/cpu6/online 0
+    write /sys/devices/system/cpu/cpu7/online 0
+    write /sys/module/msm_thermal/core_control/enabled 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "interactive"
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "interactive"
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor "interactive"
+    write /sys/module/msm_thermal/core_control/enabled 1
+    write /sys/module/lpm_levels/parameters/sleep_disabled 0
+
+    write /sys/bus/i2c/devices/2-0024/hw_reset 1
+
 # separate copy needed to use /sbin/linker64 instead of /system/bin/linker64
 service sbinqseecomd /sbin/qseecomd
     oneshot
